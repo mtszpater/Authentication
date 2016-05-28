@@ -19,9 +19,6 @@ namespace WWW.Controllers
 			ViewData ["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
 			ViewData ["Runtime"] = isMono ? "Mono" : ".NET";
 
-
-			Registering.User u = new Registering.User ();
-
 			return View ();
 		}
 
@@ -38,6 +35,18 @@ namespace WWW.Controllers
 
 			return u.ToString ();
 		}
+
+		public String RegisterSend ()
+		{
+			Register r = new Register (Request.Form ["username"], Request.Form ["password"]);
+			r.RegisterInit ();
+
+			Login login = new Login ();
+			User u = login.LoginInit (Request.Form ["username"], Request.Form ["password"]);
+
+			return u.ToString ();
+		}
+
 	}
 }
 
