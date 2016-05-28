@@ -1,0 +1,15 @@
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/WWW.dll.mdb
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/WWW.dll
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/obj/Debug/WWW.dll
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/obj/Debug/WWW.dll.mdb
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/Microsoft.Web.Infrastructure.dll
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/System.Web.Razor.dll
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/System.Web.Helpers.dll
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/System.Web.WebPages.dll
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/System.Web.WebPages.Deployment.dll
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/System.Web.WebPages.Razor.dll
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/System.Web.Mvc.dll
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/MySql.Data.dll
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/MySql.Data.Entity.EF5.dll
+/Users/teez/Desktop/Authentication/WWW/WWW/WWW/bin/MySql.Web.dll
