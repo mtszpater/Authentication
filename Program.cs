@@ -8,6 +8,7 @@ namespace Registering
 	class MainClass
 	{
 
+		/* test zmian */
 		public static void Main (string[] args)
 		{
 			/* Najlepiej wpisać dane uzytkownika, ktory na pewno nie będzie istniał, aby wszystkie kroki poniżej były poprawnie zinterpretowane :) */
