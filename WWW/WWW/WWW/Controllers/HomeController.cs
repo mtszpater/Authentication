@@ -11,14 +11,14 @@ namespace WWW.Controllers
 {
 	public class HomeController : Controller
 	{
+
+		User u;
+
 		public ActionResult Index ()
 		{
-			var mvcName = typeof(Controller).Assembly.GetName ();
-			var isMono = Type.GetType ("Mono.Runtime") != null;
+			Console.WriteLine (" X" + (string)(Session ["isLogged"]));
 
-			ViewData ["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
-			ViewData ["Runtime"] = isMono ? "Mono" : ".NET";
-
+			ViewBag ["info"] = (string)(Session ["info"]);
 			return View ();
 		}
 
@@ -28,23 +28,31 @@ namespace WWW.Controllers
 		}
 
 
-		public String Login ()
+		public void Login ()
 		{
 			Login login = new Login ();
-			User u = login.LoginInit (Request.Form ["username"], Request.Form ["password"]);
+			u = login.LoginInit (Request.Form ["username"], Request.Form ["password"]);
 
-			return u.ToString ();
+			if (u.returnIsLogged ())
+			{
+				Session ["isLogged"] = "true";
+				Session ["info"] = "Jestes zalogowany";
+			}
+	
+			Console.WriteLine (" Z" + (string)(Session ["isLogged"]));
+			
+			Response.Redirect ("~");
 		}
 
-		public String RegisterSend ()
+		public void RegisterSend ()
 		{
 			Register r = new Register (Request.Form ["username"], Request.Form ["password"]);
-			r.RegisterInit ();
-
-			Login login = new Login ();
-			User u = login.LoginInit (Request.Form ["username"], Request.Form ["password"]);
-
-			return u.ToString ();
+			if (r.RegisterInit ())
+				Session ["info"] = "Zostałeś zarejestrowany";
+			else
+				Session ["info"] = "Sprawdz wpisane dane, moze login jest zajety?";
+			
+			Response.Redirect ("~");
 		}
 
 	}
