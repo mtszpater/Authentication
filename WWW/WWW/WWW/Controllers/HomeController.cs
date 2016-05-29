@@ -12,13 +12,13 @@ namespace WWW.Controllers
 	public class HomeController : Controller
 	{
 
-		User u;
+		static User u;
 
 		public ActionResult Index ()
 		{
-			Console.WriteLine (" X" + (string)(Session ["isLogged"]));
 
-			ViewBag ["info"] = (string)(Session ["info"]);
+			ViewData ["info"]  = (string)(Session ["info"]);
+
 			return View ();
 		}
 
@@ -33,14 +33,24 @@ namespace WWW.Controllers
 			Login login = new Login ();
 			u = login.LoginInit (Request.Form ["username"], Request.Form ["password"]);
 
-			if (u.returnIsLogged ())
-			{
+			if (u.returnIsLogged ()) {
 				Session ["isLogged"] = "true";
 				Session ["info"] = "Jestes zalogowany";
+				Response.Redirect ("Panel");
+			} else {
+				Session ["info"] = "Logowanie nie udało sie";
 			}
-	
-			Console.WriteLine (" Z" + (string)(Session ["isLogged"]));
 			
+			Response.Redirect ("~");
+		}
+
+		public void Logout()
+		{
+			Logout logout = new Logout ();
+			u = logout.LogoutInit (u);
+
+			Session ["info"] = "Jestes wylogowany";
+
 			Response.Redirect ("~");
 		}
 
@@ -54,6 +64,52 @@ namespace WWW.Controllers
 			
 			Response.Redirect ("~");
 		}
+
+
+		public ActionResult Panel()
+		{
+
+			ViewData ["login"] = u.returnValueOfField (u.returnUserLogin ());
+			ViewData ["pass"] = u.returnValueOfField (u.returnUserPass ());
+			ViewData ["id"] = u.returnUserId ().ToString();
+			ViewData ["perm"] = u.returnUserPermId ().ToString();
+			ViewData ["info"]  = (string)(Session ["info"]);
+
+			return View ();
+
+		}
+
+		public void Update ()
+		{
+
+			Session ["info"] = " ";
+
+			if (Request.Form ["username"].CompareTo (u.returnValueOfField (u.returnUserLogin ())) != 0) {
+				
+				if (u.setValueOfField (u.returnUserLogin (), Request.Form ["username"])) {
+					Session ["info"] = "Nazwa użytkownika zostala zmieniona\n";
+				} else {
+					Session ["info"] = "Nie udało się zmienić nazwy użytkownika. Może jest zajęta?\n";
+				}
+			}
+
+
+			PasswordHasher hasher = new PasswordHasher ();
+
+			if (Request.Form ["password"].Length > 0) {
+				if (!hasher.comparePassword (Request.Form ["password"], u.returnValueOfField (u.returnUserPass ()))) {
+					if (u.setValueOfField (u.returnUserPass (), Request.Form ["password"])) {
+						Session ["info"] = Session ["info"] + "Haslo zostalo zmienione";
+					} else {
+						Session ["info"] = Session ["info"] + "Nie zmieniłem hasla, bo nie przeszło weryfikacji :< ";
+					}
+				}
+			}
+
+			Response.Redirect ("Panel");
+
+		}
+
 
 	}
 }

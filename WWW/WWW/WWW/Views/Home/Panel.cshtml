@@ -30,9 +30,8 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Zaloguj</a></li>
-            <li role="presentation">@Html.ActionLink("Rejestruj", "Register", "Home", null, null)</li>
             <li role="presentation"><a href="#">Contact</a></li>
+             <li role="presentation">@Html.ActionLink("Wyloguj", "Logout", "Home", null, null)</li>
           </ul>
         </nav>
         <h3 class="text-muted">Login Panel</h3>
@@ -47,16 +46,25 @@
 		  </div>
 	  }
 
-      <form action="../../Home/Login" method="POST"> 
+      <form action="../../Home/Update" method="POST"> 
+      <h4>ID użytkownika</h4>
       <div class="input-group">
-	  	<input type="text" class="form-control" name="username" placeholder="Username" >
+	  	<input type="text" class="form-control" name="userId" value="@ViewBag.id" placeholder="ID uzytkownika" readonly>
 	  </div>
-	  <br />
+	  <h4>Perm ID</h4>
+      <div class="input-group">
+	  	<input type="text" class="form-control" name="permId" value="@ViewBag.perm" placeholder="PERM ID uzytkownika" readonly>
+	  </div>
+	  <h4>Login</h4>
+      <div class="input-group">
+	  	<input type="text" class="form-control" name="username" value="@ViewBag.login" laceholder="Username" >
+	  </div>
+	  <h4>Hasło</h4>
       <div class="input-group">
 	  	<input type="password" class="form-control" name="password" placeholder="Password" >
 	  </div>
 	  <br />
-	  <input type="submit" class="btn btn-default" value="Loguj">
+	  <input type="submit" class="btn btn-default" value="Zaktualizuj dane">
 	  <br />
 	  <br />
 	  </form>
