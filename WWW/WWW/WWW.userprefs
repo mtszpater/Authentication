@@ -1,1 +1,14 @@
-﻿<Properties StartupItem="WWW/WWW.csproj" />
+﻿<Properties StartupItem="WWW/WWW.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WWW/Views/Home/Register.cshtml">
+    <Files>
+      <File FileName="WWW/Controllers/HomeController.cs" Line="94" Column="5" />
+      <File FileName="WWW/Views/Home/Panel.cshtml" Line="39" Column="7" />
+      <File FileName="WWW/Views/Home/Register.cshtml" Line="53" Column="32" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
