@@ -12,8 +12,8 @@ namespace Registering
 		{
 			/* Najlepiej wpisać dane uzytkownika, ktory na pewno nie będzie istniał, aby wszystkie kroki poniżej były poprawnie zinterpretowane :) */
 
-			string userName = "test152";
-			string userName2 = "test162"; // Login na który zostanie zmieniony
+			string userName = "test1838";
+			string userName2 = "test19393"; // Login na który zostanie zmieniony
 			string userPass = "haslotest";
 			string userPass2 = "haslotest2"; // Nowe haslo na ktore zostanie zmienione
 
